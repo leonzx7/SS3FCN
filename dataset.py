@@ -207,7 +207,9 @@ def extract_grids(dataset_path: str, ground_truth_path: str, window_size: int, b
             i = i+1
             train_patch = input_data[newpatch.upper_y:newpatch.lower_y,newpatch.left_x:newpatch.right_x, :].copy()                        
             train_patch_gt = gt[newpatch.upper_y:newpatch.lower_y,newpatch.left_x:newpatch.right_x,:].copy()
+            input_data[newpatch.upper_y:newpatch.lower_y,newpatch.left_x:newpatch.right_x, :]=0
             gt[newpatch.upper_y:newpatch.lower_y,newpatch.left_x:newpatch.right_x,:]=0
+            
             
             ex1 = gt0[newpatch.upper_y:newpatch.lower_y,newpatch.left_x:newpatch.right_x].copy()
             for x in range(0,ex1.shape[0]):
@@ -228,6 +230,7 @@ def extract_grids(dataset_path: str, ground_truth_path: str, window_size: int, b
             i = i+1
             val_patch = input_data[newpatch.upper_y:newpatch.lower_y,newpatch.left_x:newpatch.right_x, :].copy()            
             val_patch_gt = gt[newpatch.upper_y:newpatch.lower_y,newpatch.left_x:newpatch.right_x,:].copy()
+            input_data[newpatch.upper_y:newpatch.lower_y,newpatch.left_x:newpatch.right_x, :]=0
             gt[newpatch.upper_y:newpatch.lower_y,newpatch.left_x:newpatch.right_x,:]=0
             ex2 = gt0[newpatch.upper_y:newpatch.lower_y,newpatch.left_x:newpatch.right_x].copy()
             for x in range(0,ex2.shape[0]):
